@@ -6,9 +6,7 @@ import { notesBoardReducer } from "./reducers/notesBoardReducer";
 
 
 export default createStore(
-    combineReducers({
-      notesBoardReducer
-    }),
+    combineReducers({ notesBoardReducer }),
     {},
     applyMiddleware(createLogger(), thunk, promise())
 );

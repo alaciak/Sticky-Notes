@@ -6,16 +6,15 @@ class AddNewButton extends React.Component {
 
   handleOnClickAdd = event => {
     event.preventDefault();
-    this.props.addNote()
+    this.props.addNote();
   }
 
   render() {
     return (
-      <button type='button' className='btn btn-primary' onClick={ this.handleOnClickAdd }>Add Note</button>
+      <button type='button' className='btn btn-primary btn-add' onClick={ this.handleOnClickAdd } >Add Note</button>
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {}
@@ -23,8 +22,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNote: () => {
-      dispatch(addNote());
+    addNote: (note) => {
+      dispatch(addNote(note));
     }
   };
 };

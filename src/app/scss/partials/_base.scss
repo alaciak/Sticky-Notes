@@ -1,0 +1,27 @@
+* {
+  font-size: 16px;
+}
+
+body {
+  background: url('../images/background_main.jpg') no-repeat center / cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: $font-main;
+  margin: 2em 0 1em 0;
+  color: #141516;
+  font-weight: 900;
+  border-bottom: 5px solid #141516;
+  padding-bottom: 1rem;
+}
+
+button {
+  margin-bottom: 1.5em;
+  width: 7rem;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+  }
+}

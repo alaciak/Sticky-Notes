@@ -1,5 +1,5 @@
 import React from 'react';
-import AddNewButton from './AddNewButton.jsx';
+import AddNewButton from '../containers/AddNewButton.jsx';
 import { Provider } from 'react-redux';
 import store from '../Store.jsx';
 
@@ -9,7 +9,7 @@ export class PanelHeading extends React.Component {
     return (
       <header>
         <nav className='row'>
-          <div className='col-md-12'>
+          <div className='col-md-12 page-header'>
             <h1>Sticky Notes Board</h1>
           </div>
         </nav>

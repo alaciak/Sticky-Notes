@@ -1,5 +1,5 @@
 import React from 'react';
-import NotesBoard from '../components/NotesBoard.jsx';
+import NotesBoard from './NotesBoard.jsx';
 import { PanelHeading } from '../components/PanelHeading.jsx';
 import { Provider } from 'react-redux';
 import store from '../Store.jsx';

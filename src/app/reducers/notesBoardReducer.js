@@ -1,20 +1,32 @@
 export const notesBoardReducer = (state = {
-  notesList: []
+  notesList: [],
+  loading: true
 }, action) => {
   switch (action.type) {
-    case "ADD_NEW":
+    case "GET_NOTES_FULFILLED":
       state = {
         ...state,
-        notesList: [...state.notesList, { id: action.payload }]
+        notesList: action.payload,
+        loading: false
       };
       break;
-    case "REMOVE_NOTE":
-      const newList = state.notesList.filter((note) => {
-        return note.id !== action.payload;
-      })
+    case "ADD_NOTE_FULFILLED":
       state = {
         ...state,
-        notesList: newList
+        loading: false
+      };
+      break;
+    case "UPDATE_NOTE_FULFILLED":
+    console.log(action.payload);
+      state = {
+        ...state,
+        loading: false
+      };
+      break;
+    case "REMOVE_NOTE_FULFILLED":
+      state = {
+        ...state,
+        loading: false
       };
       break;
   }

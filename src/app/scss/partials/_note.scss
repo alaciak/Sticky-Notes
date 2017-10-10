@@ -1,0 +1,61 @@
+.note_text {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  padding: 1rem;
+  &:nth-of-type(odd) {
+    .note_text--textarea {
+      transform:rotate(-3deg);
+      top:-5px;
+    }
+  }
+  &:nth-of-type(even) {
+    .note_text--textarea {
+      background: #f2c9ee;
+      transform:rotate(4deg);
+      top:5px;
+    }
+  }
+  &:nth-of-type(3n) {
+    .note_text--textarea {
+      background: #c5e5e5;
+    }
+  }
+  .note_text--textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    background: #f6fccf;
+    &:hover {
+      transform:rotate(0deg);
+      span {
+        display: block;
+      }
+    }
+    textarea {
+      font-family: $font-notes;
+      background: transparent;
+      border: none;
+      width: 85%;
+      height: 80%;
+      margin: 0 auto;
+      &:focus {
+        outline-color: transparent;
+      }
+    }
+    span {
+      right: 8%;
+      top: 4%;
+      display: none;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ff0000;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
