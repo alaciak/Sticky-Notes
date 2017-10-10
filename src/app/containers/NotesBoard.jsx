@@ -17,9 +17,9 @@ export class NotesBoard extends React.Component {
     } else if(this.props.loading) {
       return null;
     } else {
-        const noteList = this.props.notesList.map((el, index) => {
+        const noteList = this.props.notesList.map(el => {
           return (
-              <Provider store={ store } key={ index }>
+              <Provider store={ store } key={ el.id }>
                 <Note noteId={ el.id } note={ el }/>
               </Provider>
           );

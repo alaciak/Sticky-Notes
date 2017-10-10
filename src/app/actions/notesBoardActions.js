@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 import thunk from 'redux-thunk';
 
 const baseUrl = 'http://localhost:3000/notes';
+const backgroundColors = ['#f2c9ee', '#c5e5e5', '#f6fccf'];
 
 export function getNotes() {
 
@@ -17,7 +18,11 @@ export function getNotes() {
 
 export function addNote() {
 
-const note = { id: uuidv4() };
+const randomColor = backgroundColors[Math.floor(backgroundColors.length * Math.random())];
+const note = {
+  id: uuidv4(),
+  background: randomColor
+ };
 
 return dispatch => {
   return dispatch({
@@ -34,6 +39,7 @@ return dispatch => {
 }
 
 export function updateNote(note) {
+  console.log(note);
 
   return dispatch => {
       return dispatch({

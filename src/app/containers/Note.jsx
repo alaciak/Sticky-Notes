@@ -9,7 +9,8 @@ export class Note extends React.Component {
     this.state = {
       note: {
         id: this.props.noteId,
-        text: ''
+        text: '',
+        background: this.props.note.background
       }
     }
   }
@@ -24,7 +25,7 @@ export class Note extends React.Component {
   }
 
   handleOnClickRemove = event => {
-    this.props.removeNote(this.props.noteId)
+    this.props.removeNote(this.props.noteId);
   }
 
   handleOnChangeText = event => {
@@ -43,7 +44,7 @@ export class Note extends React.Component {
   render() {
     return (
       <div className='col-md-3 note_text'>
-        <div className='note_text--textarea'>
+        <div className='note_text--textarea' style={{ backgroundColor: this.props.note.background }}>
           <textarea name='textarea' style={{ }} value={ this.state.note.text } onChange={ this.handleOnChangeText } onBlur={ this.handleOnBlurUpdate }></textarea>
           <span style={{ position: 'absolute' }} onClick={ this.handleOnClickRemove }>X</span>
         </div>

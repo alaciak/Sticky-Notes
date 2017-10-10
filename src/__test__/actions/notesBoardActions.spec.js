@@ -47,10 +47,11 @@ describe('notesBoardActions', () => {
       .put('/notes/1')
       .reply(200, { body: []});
 
+    const testNote = {id: 1, text: 'test'};
     const expectedActions = ['UPDATE_NOTE_PENDING', 'UPDATE_NOTE_FULFILLED'];
     const store = mockStore({});
 
-    store.dispatch(updateNote('1')).then().then(() => {
+    store.dispatch(updateNote(testNote)).then().then(() => {
       const dispatchedActions = store.getActions();
       expect(dispatchedActions.map(action => action.type)).toEqual(expectedActions);
     });

@@ -1,18 +1,19 @@
 {
   "notes": [
     {
-      "id": "7b3f3a21-b441-4052-b9c1-f6a16ef48432",
-      "text": "moja pierwsza notatka"
+      "id": "9739c668-f946-454f-9c17-056091239668",
+      "text": "do something with your life",
+      "background": "#c5e5e5"
     },
     {
-      "id": "6f3905c3-5fc6-4493-8f15-540561d2f929",
-      "text": "moja druga notatka "
+      "id": "e255b69a-9f16-4090-80d6-e44b4b965586",
+      "text": "find a job",
+      "background": "#f6fccf"
     },
     {
-      "id": "40dc3a7a-a7f0-48b3-bcd6-f0bbe5bf4291"
-    },
-    {
-      "id": "8ca276c3-44bd-413b-b8ff-3ff983fe1bf1"
+      "id": "91c9c329-efaa-4908-8e3e-a6db1880b39e",
+      "text": "jus don't die lonely",
+      "background": "#c5e5e5"
     }
   ]
 }
