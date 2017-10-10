@@ -5,7 +5,7 @@ import { getNotes } from '../actions/notesBoardActions';
 import { Provider } from 'react-redux';
 import store from '../Store.jsx';
 
-class NotesBoard extends React.Component {
+export class NotesBoard extends React.Component {
 
   componentDidMount() {
     this.props.getNotes();

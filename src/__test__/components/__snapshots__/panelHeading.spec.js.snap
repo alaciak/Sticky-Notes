@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PanelHeading should render PanelHeading component 1`] = `
+<header>
+  <nav
+    className="row"
+  >
+    <div
+      className="col-md-12 page-header"
+    >
+      <h1>
+        Sticky Notes Board
+      </h1>
+    </div>
+  </nav>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6"
+    >
+      <Provider
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+      >
+        <Connect(AddNewButton) />
+      </Provider>
+    </div>
+  </div>
+</header>
+`;

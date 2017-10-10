@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesBoard should not render if the data are not fetched from the server 1`] = `null`;
+
+exports[`NotesBoard should not render if the list from the server is empty 1`] = `null`;
+
+exports[`NotesBoard should render if the data are fetched from the server and the list is not empty 1`] = `
+<div
+  className="row"
+>
+   
+  <Provider
+    key="0"
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Connect(Note)
+      note={
+        Object {
+          "id": 2,
+        }
+      }
+      noteId={2}
+    />
+  </Provider>
+</div>
+`;

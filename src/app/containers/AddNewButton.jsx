@@ -2,7 +2,7 @@ import React from 'react';
 import { addNote } from '../actions/notesBoardActions';
 import { connect } from 'react-redux';
 
-class AddNewButton extends React.Component {
+export class AddNewButton extends React.Component {
 
   handleOnClickAdd = event => {
     event.preventDefault();

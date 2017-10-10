@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note should render Note component 1`] = `
+<div
+  className="col-md-3 note_text"
+>
+  <div
+    className="note_text--textarea"
+  >
+    <textarea
+      name="textarea"
+      onBlur={[Function]}
+      onChange={[Function]}
+      style={Object {}}
+      value=""
+    />
+    <span
+      onClick={[Function]}
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      X
+    </span>
+  </div>
+</div>
+`;
