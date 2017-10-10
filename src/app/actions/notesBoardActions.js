@@ -10,7 +10,6 @@ export function getNotes() {
     return data;
   });
   return {
-
     type: 'GET_NOTES',
     payload: fetchPromise
   };

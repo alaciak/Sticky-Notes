@@ -17,7 +17,6 @@ export const notesBoardReducer = (state = {
       };
       break;
     case "UPDATE_NOTE_FULFILLED":
-    console.log(action.payload);
       state = {
         ...state,
         loading: false
