@@ -11,7 +11,9 @@ export class AddNewButton extends React.Component {
 
   render() {
     return (
-      <button type='button' className='btn btn-primary btn-add' onClick={ this.handleOnClickAdd } >Add Note</button>
+      <div className='row'>
+        <button type='button' className='btn btn-primary btn-add' onClick={ this.handleOnClickAdd }>Add Note</button>
+      </div>
     );
   }
 }

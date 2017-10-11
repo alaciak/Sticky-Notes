@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddNewButton should render AddNewButton component 1`] = `
-<button
-  className="btn btn-primary btn-add"
-  onClick={[Function]}
-  type="button"
+<div
+  className="row"
 >
-  Add Note
-</button>
+  <button
+    className="btn btn-primary btn-add"
+    onClick={[Function]}
+    type="button"
+  >
+    Add Note
+  </button>
+</div>
 `;

@@ -8,9 +8,8 @@ exports[`NotesBoard should render if the data are fetched from the server and th
 <div
   className="row"
 >
-   
   <Provider
-    key="0"
+    key="2"
     store={
       Object {
         "dispatch": [Function],
@@ -20,14 +19,23 @@ exports[`NotesBoard should render if the data are fetched from the server and th
       }
     }
   >
-    <Connect(Note)
+    <Connect(DropTarget(DragSource(Note)))
+      index={0}
       note={
         Object {
           "id": 2,
         }
       }
       noteId={2}
+      showAlert={[Function]}
     />
   </Provider>
+  <AlertContainer
+    offset={10}
+    position="bottom left"
+    theme="dark"
+    time={5000}
+    transition="scale"
+  />
 </div>
 `;

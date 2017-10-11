@@ -3,6 +3,8 @@ import NotesBoard from './NotesBoard.jsx';
 import { PanelHeading } from '../components/PanelHeading.jsx';
 import { Provider } from 'react-redux';
 import store from '../Store.jsx';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 
 export class App extends React.Component {
@@ -19,3 +21,5 @@ export class App extends React.Component {
     );
   }
 }
+
+export default DragDropContext(HTML5Backend)(App);

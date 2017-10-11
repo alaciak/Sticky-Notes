@@ -39,7 +39,6 @@ return dispatch => {
 }
 
 export function updateNote(note) {
-  console.log(note);
 
   return dispatch => {
       return dispatch({
@@ -62,5 +61,13 @@ export function removeNote(noteId) {
        type: 'REMOVE_NOTE',
        payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' })
      }).then(() => dispatch(getNotes()));
+   };
+}
+
+export function moveNote(dragIndex, hoverIndex) {
+
+ return {
+       type: 'MOVE_NOTE',
+       payload: { dragIndex, hoverIndex }
    };
 }

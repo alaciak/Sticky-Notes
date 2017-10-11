@@ -1,3 +1,5 @@
+import update from 'immutability-helper';
+
 export const notesBoardReducer = (state = {
   notesList: [],
   loading: true
@@ -27,6 +29,14 @@ export const notesBoardReducer = (state = {
         ...state,
         loading: false
       };
+      break;
+    case "MOVE_NOTE":
+      state =
+        update(state, {
+          notesList: {
+            $splice: [[action.payload.dragIndex, 1], [action.payload.hoverIndex, 0, state.notesList[action.payload.dragIndex]]],
+          },
+        });
       break;
   }
   return state;
