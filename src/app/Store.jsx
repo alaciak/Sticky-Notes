@@ -10,7 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
     combineReducers({ notesBoardReducer }),
     {},
-    applyMiddleware(sagaMiddleware, createLogger(), thunk, promise())
+    applyMiddleware(sagaMiddleware, thunk, promise(), createLogger())
 );
 
 sagaMiddleware.run(rootSaga);

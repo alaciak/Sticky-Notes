@@ -72,7 +72,8 @@ export class Note extends React.Component {
         text: this.props.note.text,
         background: this.props.note.background,
         index: this.props.index
-      }
+      },
+      isDirty: false
     }
   }
 
@@ -85,13 +86,19 @@ export class Note extends React.Component {
       note: {
         ...this.state.note,
         text: event.target.value
-      }
+      },
+      isDirty: true
     });
   }
 
   handleOnBlurUpdate = event => {
-    // this.props.updateNote(this.state.note);
-    // this.props.showAlert();
+    if(this.state.isDirty) {
+      this.props.updateNote(this.state.note);
+      this.props.showAlert();
+      this.setState({
+        isDirty: false
+      })
+    }
   }
 
   render() {
