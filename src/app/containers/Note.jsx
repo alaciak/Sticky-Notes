@@ -32,13 +32,15 @@ const noteTarget = {
 		}
 		const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
 		const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
+		const hoverMiddleY = (hoverBoundingRect.top - hoverBoundingRect.bottom) / 2;
 		const clientOffset = monitor.getClientOffset();
 		const hoverClientX = clientOffset.x - hoverBoundingRect.left;
+		const hoverClientY = clientOffset.y - hoverBoundingRect.bottom;
 
-		if (dragIndex < hoverIndex && hoverClientX < hoverMiddleX) {
+		if ((dragIndex < hoverIndex && hoverClientX < hoverMiddleX) && (dragIndex < hoverIndex && hoverClientY < hoverMiddleY)) {
 			return;
 		}
-		if (dragIndex > hoverIndex && hoverClientX > hoverMiddleX) {
+		if ((dragIndex > hoverIndex && hoverClientX > hoverMiddleX) && (dragIndex > hoverIndex && hoverClientY > hoverMiddleY)) {
 			return;
 		}
 		props.moveNote(dragIndex, hoverIndex);
