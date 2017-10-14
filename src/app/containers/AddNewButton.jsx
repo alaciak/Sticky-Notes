@@ -6,7 +6,7 @@ export class AddNewButton extends React.Component {
 
   handleOnClickAdd = event => {
     event.preventDefault();
-    this.props.addNote();
+    this.props.addNote(this.props.notesList.length);
   }
 
   render() {
@@ -19,13 +19,15 @@ export class AddNewButton extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    notesList: state.notesBoardReducer.notesList
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNote: (note) => {
-      dispatch(addNote(note));
+    addNote: (index) => {
+      dispatch(addNote(index));
     }
   };
 };

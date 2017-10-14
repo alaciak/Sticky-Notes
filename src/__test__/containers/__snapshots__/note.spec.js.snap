@@ -6,13 +6,19 @@ exports[`Note should render Note component 1`] = `
 >
   <div
     className="note_text--textarea"
+    style={
+      Object {
+        "backgroundColor": "testBackground",
+        "opacity": 1,
+      }
+    }
   >
     <textarea
       name="textarea"
       onBlur={[Function]}
       onChange={[Function]}
       style={Object {}}
-      value=""
+      value="testText"
     />
     <span
       onClick={[Function]}
@@ -22,7 +28,7 @@ exports[`Note should render Note component 1`] = `
         }
       }
     >
-      X
+      ×
     </span>
   </div>
 </div>

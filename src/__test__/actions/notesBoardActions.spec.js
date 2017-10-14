@@ -58,7 +58,7 @@ describe('notesBoardActions', () => {
 
   });
 
-  it('should dispatch REMOVE_NOTE_PENDING, REMOVE_NOTE_FULFILLED, GET_NOTES_PENDING and GET_NOTES_FULFILLED when fetching data', () => {
+  it('should dispatch REMOVE_NOTE_PENDING and REMOVE_NOTE_FULFILLED when fetching data', () => {
     nock('http://localhost:3000/')
       .delete('/notes/1')
       .reply(200, { body: []});
@@ -66,7 +66,7 @@ describe('notesBoardActions', () => {
       .get('/notes')
       .reply(200, { body: []});
 
-    const expectedActions = ['REMOVE_NOTE_PENDING', 'REMOVE_NOTE_FULFILLED', 'GET_NOTES_PENDING', 'GET_NOTES_FULFILLED'];
+    const expectedActions = ['REMOVE_NOTE_PENDING', 'REMOVE_NOTE_FULFILLED'];
     const store = mockStore({});
 
     store.dispatch(removeNote('1')).then().then(() => {

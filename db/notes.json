@@ -1,14 +1,28 @@
 {
   "notes": [
     {
-      "id": "9739c668-f946-454f-9c17-056091239668",
-      "text": "test note",
-      "background": "#c5e5e5"
+      "id": "c2e9551a-bb62-4564-b413-4ee43b735302",
+      "text": "t0",
+      "background": "#c5e5e5",
+      "index": 0
     },
     {
-      "id": "ff526e9e-6cad-411d-b139-67dd7d305bc9",
-      "text": "test note2",
-      "background": "#f2c9ee"
+      "id": "1e51062b-2657-4727-bd4c-2e702d52f1d5",
+      "text": "t1",
+      "background": "#f2c9ee",
+      "index": 1
+    },
+    {
+      "id": "184517bf-8fa1-4657-9de2-e264ed7a6e6c",
+      "text": "t2",
+      "background": "#c5e5e5",
+      "index": 3
+    },
+    {
+      "id": "67e3dc16-a960-4c58-ac7d-c38cef9f7c6a",
+      "text": "t3",
+      "background": "#f6fccf",
+      "index": 2
     }
   ]
 }

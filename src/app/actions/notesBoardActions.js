@@ -16,12 +16,13 @@ export function getNotes() {
   };
 }
 
-export function addNote() {
+export function addNote(index) {
 
 const randomColor = backgroundColors[Math.floor(backgroundColors.length * Math.random())];
 const note = {
   id: uuidv4(),
-  background: randomColor
+  background: randomColor,
+  index: index
  };
 
 return dispatch => {
@@ -59,8 +60,8 @@ export function removeNote(noteId) {
  return dispatch => {
      return dispatch({
        type: 'REMOVE_NOTE',
-       payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' })
-     }).then(() => dispatch(getNotes()));
+       payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' }).then(() => noteId)
+     });
    };
 }
 
@@ -69,5 +70,30 @@ export function moveNote(dragIndex, hoverIndex) {
  return {
        type: 'MOVE_NOTE',
        payload: { dragIndex, hoverIndex }
+   };
+}
+
+export function updateNotesPositions(noteId, noteIndex) {
+
+ return {
+       type: 'UPDATE_NOTES_POSITIONS',
+       payload: { noteId, noteIndex }
+   };
+}
+export function updateNotePosition(noteId, noteIndex) {
+
+ return dispatch => {
+       return dispatch({
+         type: 'UPDATE_NOTE_POSITION',
+         payload: fetch(baseUrl + '/' + noteId, {
+           method: 'PATCH',
+           body: JSON.stringify({index: noteIndex}),
+           headers: {
+             "Content-Type": "application/json"
+           }
+         }).then(() => {
+           return { noteId, noteIndex };
+         })
+     });
    };
 }

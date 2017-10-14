@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { removeNote, updateNote, moveNote } from '../actions/notesBoardActions';
+import { removeNote, updateNote, moveNote, updateNotesPositions } from '../actions/notesBoardActions';
 import { connect } from 'react-redux';
 import { DragSource } from 'react-dnd';
 import { DropTarget } from 'react-dnd';
@@ -16,6 +16,9 @@ const noteSource = {
 			id: props.id,
 			index: props.index,
 		}
+  },
+  endDrag(props, monitor, component) {
+    props.updateNotesPositions(props.note.id, monitor.getItem().index)
   }
 };
 
@@ -67,7 +70,8 @@ export class Note extends React.Component {
       note: {
         id: this.props.noteId,
         text: this.props.note.text,
-        background: this.props.note.background
+        background: this.props.note.background,
+        index: this.props.index
       }
     }
   }
@@ -86,13 +90,12 @@ export class Note extends React.Component {
   }
 
   handleOnBlurUpdate = event => {
-    this.props.updateNote(this.state.note);
-    this.props.showAlert();
+    // this.props.updateNote(this.state.note);
+    // this.props.showAlert();
   }
 
   render() {
-    const { id } = this.props;
-    const {	text, isDragging, connectDragSource, connectDropTarget } = this.props;
+    const {	id, text, isDragging, connectDragSource, connectDropTarget } = this.props;
     return (
       connectDragSource(connectDropTarget(<div className='col-md-3 note_text'>
         <div className='note_text--textarea' style={{ backgroundColor: this.props.note.background, opacity: isDragging ? 0.5 : 1 }}>
@@ -119,6 +122,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     moveNote: (dragIndex, hoverIndex) =>{
       dispatch(moveNote(dragIndex, hoverIndex))
+    },
+    updateNotesPositions: (noteId, noteIndex) =>{
+      dispatch(updateNotesPositions(noteId, noteIndex))
     }
   };
 };

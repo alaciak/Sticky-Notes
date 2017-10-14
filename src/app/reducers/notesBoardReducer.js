@@ -8,7 +8,7 @@ export const notesBoardReducer = (state = {
     case "GET_NOTES_FULFILLED":
       state = {
         ...state,
-        notesList: action.payload,
+        notesList: action.payload.sort((a, b) => a.index - b.index),
         loading: false
       };
       break;
@@ -27,6 +27,7 @@ export const notesBoardReducer = (state = {
     case "REMOVE_NOTE_FULFILLED":
       state = {
         ...state,
+        notesList: state.notesList.filter(el => el.id !== action.payload),
         loading: false
       };
       break;
@@ -35,6 +36,17 @@ export const notesBoardReducer = (state = {
         update(state, {
           notesList: {
             $splice: [[action.payload.dragIndex, 1], [action.payload.hoverIndex, 0, state.notesList[action.payload.dragIndex]]],
+          },
+        });
+      break;
+    case "UPDATE_NOTE_POSITION_FULFILLED":
+      const arrayIndex = state.notesList.map(note => note.id).indexOf(action.payload.noteId);
+      state =
+        update(state, {
+          notesList: {
+            [arrayIndex]: {
+              index: { $set: action.payload.noteIndex }
+            }
           },
         });
       break;
