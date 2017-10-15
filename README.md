@@ -8,7 +8,7 @@ The following features has been implemented so far:
 * on click 'ADD NOTE' button, a new note is created
 * new note is saved and sent to the backend
 * every note is editable and removable
-* every note is draggable - you can changed an order fo notes; the new order is sent to the backend
+* every note is draggable - you can change an order of notes; the new order is sent to the backend
 
 ### in order to run the app, use the following commands in console:
 in order to download dependencies:
@@ -40,7 +40,7 @@ after successfully running the both servers, the app should be available at: htt
 * Redux-Saga
 * react-alert
 * immutability-helper
-* Jest (unit tests)
+* Jest 
 * Sass
 * Bootstrap
 * Fetch
