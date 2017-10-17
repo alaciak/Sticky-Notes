@@ -32,7 +32,7 @@ describe('notesBoardActions', () => {
       .get('/notes')
       .reply(200, { body: []});
 
-    const expectedActions = ['ADD_NOTE_PENDING', 'ADD_NOTE_FULFILLED', 'GET_NOTES_PENDING', 'GET_NOTES_FULFILLED'];
+    const expectedActions = ['ADD_NOTE_PENDING', 'ADD_NOTE_FULFILLED'];
     const store = mockStore({});
 
     store.dispatch(addNote('1')).then().then(() => {

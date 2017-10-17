@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import { call, put, select } from 'redux-saga/effects';
-import { moveNotesAsync } from '../../app/sagas/sagas';
+import { moveNotesAsync, addNotesAsync } from '../../app/sagas/sagas';
 import { takeEvery } from 'redux-saga';
 import { updateNotePosition } from '../../app/actions/notesBoardActions';
-
+import { getNotes } from '../../app/actions/notesBoardActions';
 
 const updateNotesPositions = (noteId, noteIndex) => ({
   type: 'UPDATE_NOTES_POSITIONS',
@@ -12,8 +12,7 @@ const updateNotesPositions = (noteId, noteIndex) => ({
 
 describe('moveNotesAsync', () => {
 
-// to be fixed
-  it('should dispatch updateNotePositionAction', () => {
+  it('should dispatch updateNotePosition action', () => {
 
       const testState = {
         notesList: [
@@ -28,6 +27,14 @@ describe('moveNotesAsync', () => {
       gen.next();
 
       expect(gen.next(getTestNotesList).value).toEqual(put(updateNotePosition(2, 3)));
+
+  });
+
+  it('should dispatch getNotes action', () => {
+
+      const gen =  addNotesAsync();
+
+      expect(gen.next().value).toEqual(put(getNotes()));
 
   });
 
