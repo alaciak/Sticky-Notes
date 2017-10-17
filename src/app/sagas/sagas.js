@@ -1,6 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 import { updateNotePosition } from '../actions/notesBoardActions';
+import { getNotes } from '../actions/notesBoardActions';
 
 // worker saga
 export function* moveNotesAsync() {
@@ -15,17 +16,28 @@ export function* moveNotesAsync() {
         yield put(updateNotePosition(notesList[i].id, i));
       }
     }
-
-  } catch (error) {
+  }
+  catch (error) {
     console.log('Ooops we got an error: ', error);
   }
 }
 
-// watcher saga triggers a new task on move note action
-export function* watchMoveNotes() {
+export function* addNotesAsync () {
+
+  try {
+    yield put(getNotes());
+  }
+  catch (error) {
+    console.log('Ooops we got an error: ', error);
+  }
+}
+
+// watcher saga triggers a new task on move and remove note actions
+export function* watchNotes() {
 
   yield takeEvery('UPDATE_NOTES_POSITIONS', moveNotesAsync);
   yield takeEvery('REMOVE_NOTE_FULFILLED', moveNotesAsync);
+  yield takeEvery('ADD_NOTE_FULFILLED', addNotesAsync);
 
 }
 
@@ -33,7 +45,7 @@ export function* watchMoveNotes() {
 export default function* rootSaga() {
 
   yield [
-    watchMoveNotes()
+    watchNotes()
   ];
 
 }

@@ -13,7 +13,7 @@ const updateNotesPositions = (noteId, noteIndex) => ({
 describe('moveNotesAsync', () => {
 
 // to be fixed
-  xit('should dispatch updateNotePositionAction', () => {
+  it('should dispatch updateNotePositionAction', () => {
 
       const testState = {
         notesList: [

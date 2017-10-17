@@ -1,6 +1,5 @@
 import uuidv4 from 'uuid/v4';
 import fetch from 'isomorphic-fetch';
-import thunk from 'redux-thunk';
 
 const baseUrl = 'http://localhost:3000/notes';
 const backgroundColors = ['#f2c9ee', '#c5e5e5', '#f6fccf'];
@@ -25,75 +24,68 @@ const note = {
   index: index
  };
 
-return dispatch => {
-  return dispatch({
+  return  {
     type: 'ADD_NOTE',
     payload: fetch(baseUrl, {
-        method: 'POST',
-        body: JSON.stringify(note),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-  }).then(() => dispatch(getNotes()));
-};
+      method: 'POST',
+      body: JSON.stringify(note),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+  };
 }
 
 export function updateNote(note) {
 
-  return dispatch => {
-      return dispatch({
-        type: 'UPDATE_NOTE',
-        payload: fetch(baseUrl + '/' + note.id, {
-          method: 'PUT',
-          body: JSON.stringify(note),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-      });
-    };
+  return {
+    type: 'UPDATE_NOTE',
+    payload: fetch(baseUrl + '/' + note.id, {
+      method: 'PUT',
+      body: JSON.stringify(note),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+  };
 }
 
 export function removeNote(noteId) {
 
- return dispatch => {
-     return dispatch({
-       type: 'REMOVE_NOTE',
-       payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' }).then(() => noteId)
-     });
-   };
+  return {
+    type: 'REMOVE_NOTE',
+    payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' }).then(() => noteId)
+  };
 }
 
 export function moveNote(dragIndex, hoverIndex) {
 
- return {
-       type: 'MOVE_NOTE',
-       payload: { dragIndex, hoverIndex }
-   };
+  return {
+    type: 'MOVE_NOTE',
+    payload: { dragIndex, hoverIndex }
+  };
 }
 
 export function updateNotesPositions(noteId, noteIndex) {
 
- return {
-       type: 'UPDATE_NOTES_POSITIONS',
-       payload: { noteId, noteIndex }
-   };
+  return {
+    type: 'UPDATE_NOTES_POSITIONS',
+    payload: { noteId, noteIndex }
+  };
 }
+
 export function updateNotePosition(noteId, noteIndex) {
 
- return dispatch => {
-       return dispatch({
-         type: 'UPDATE_NOTE_POSITION',
-         payload: fetch(baseUrl + '/' + noteId, {
-           method: 'PATCH',
-           body: JSON.stringify({index: noteIndex}),
-           headers: {
-             "Content-Type": "application/json"
-           }
-         }).then(() => {
-           return { noteId, noteIndex };
-         })
-     });
-   };
+ return {
+    type: 'UPDATE_NOTE_POSITION',
+    payload: fetch(baseUrl + '/' + noteId, {
+      method: 'PATCH',
+      body: JSON.stringify({index: noteIndex}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(() => {
+      return { noteId, noteIndex };
+    })
+  };
 }

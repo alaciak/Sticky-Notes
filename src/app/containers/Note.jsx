@@ -81,6 +81,7 @@ export class Note extends React.Component {
 
   handleOnClickRemove = event => {
     this.props.removeNote(this.props.noteId);
+    this.props.showAlert();
   }
 
   handleOnChangeText = event => {
