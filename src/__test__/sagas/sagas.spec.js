@@ -1,18 +1,16 @@
-import configureMockStore from 'redux-mock-store';
 import { call, put, select } from 'redux-saga/effects';
 import { moveNotesAsync, addNotesAsync } from '../../app/sagas/sagas';
 import { takeEvery } from 'redux-saga';
 import { updateNotePosition } from '../../app/actions/notesBoardActions';
 import { getNotes } from '../../app/actions/notesBoardActions';
-
-const updateNotesPositions = (noteId, noteIndex) => ({
-  type: 'UPDATE_NOTES_POSITIONS',
-  payload: { noteId, noteIndex }
-});
+import nock from 'nock';
 
 describe('moveNotesAsync', () => {
 
   it('should dispatch updateNotePosition action', () => {
+    nock('http://localhost:3000/')
+      .patch('/notes/2')
+      .reply(200, { body: []});
 
       const testState = {
         notesList: [
@@ -31,6 +29,9 @@ describe('moveNotesAsync', () => {
   });
 
   it('should dispatch getNotes action', () => {
+    nock('http://localhost:3000/')
+      .get('/notes')
+      .reply(200, { body: []});
 
       const gen =  addNotesAsync();
 

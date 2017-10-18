@@ -6,9 +6,9 @@ const backgroundColors = ['#f2c9ee', '#c5e5e5', '#f6fccf'];
 
 export function getNotes() {
 
-  const fetchPromise = fetch(baseUrl).then(resp => resp.json()).then(data => {
-    return data;
-  });
+  const fetchPromise = fetch(baseUrl).then(resp => resp.json()).then(data => data)
+  .catch(error => console.log(error));
+  
   return {
     type: 'GET_NOTES',
     payload: fetchPromise
@@ -55,6 +55,7 @@ export function removeNote(noteId) {
   return {
     type: 'REMOVE_NOTE',
     payload: fetch(baseUrl + '/' + noteId, { method: 'DELETE' }).then(() => noteId)
+      .catch(error => console.log(error))
   };
 }
 
@@ -87,5 +88,6 @@ export function updateNotePosition(noteId, noteIndex) {
     }).then(() => {
       return { noteId, noteIndex };
     })
+    .catch(error => console.log(error))
   };
 }

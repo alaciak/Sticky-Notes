@@ -2,11 +2,10 @@ import { getNotes, addNote, updateNote, removeNote, moveNote, updateNotesPositio
 import nock from 'nock';
 import configureMockStore from 'redux-mock-store';
 import promise from 'redux-promise-middleware';
-import thunk from 'redux-thunk';
 
 describe('notesBoardActions', () => {
 
-  const middlewares = [promise(), thunk];
+  const middlewares = [promise()];
   const mockStore = configureMockStore(middlewares);
 
   it('should dispatch GET_NOTES_PENDING and GET_NOTES_FULFILLED when fetching data', () => {
@@ -24,12 +23,9 @@ describe('notesBoardActions', () => {
 
   });
 
-  it('should dispatch ADD_NOTE_PENDING, ADD_NOTE_FULFILLED, GET_NOTES_PENDING and GET_NOTES_FULFILLED when fetching data', () => {
+  it('should dispatch ADD_NOTE_PENDING and ADD_NOTE_FULFILLED when fetching data', () => {
     nock('http://localhost:3000/')
       .post('/notes')
-      .reply(200, { body: []});
-    nock('http://localhost:3000/')
-      .get('/notes')
       .reply(200, { body: []});
 
     const expectedActions = ['ADD_NOTE_PENDING', 'ADD_NOTE_FULFILLED'];
