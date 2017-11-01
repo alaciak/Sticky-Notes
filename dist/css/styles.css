@@ -73,7 +73,8 @@ button {
       border: none;
       width: 85%;
       height: 80%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      resize: none; }
       .note_text .note_text--textarea textarea:focus {
         outline-color: transparent; }
     .note_text .note_text--textarea span {
